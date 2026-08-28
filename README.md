@@ -6,8 +6,6 @@ Clients encrypt vault data on the device. The optional sync server stores **ciph
 
 **Protocol is open. The official app is not.** Audit crypto and self-host from this repo and the open packages. Install the official client from [Releases](https://github.com/OpenSelfHosting/OpenKey/releases) or the [docs download page](https://openselfhosting.com/guide/download).
 
-Arabic: [التوثيق بالعربية](https://openselfhosting.com/ar/) · الإبلاغ الأمني: **security@openselfhosting.com**
-
 ## What you can open and audit
 
 | Piece | Repo | License |
