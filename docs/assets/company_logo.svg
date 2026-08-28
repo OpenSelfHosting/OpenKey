@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="OpenSelfHosting">
+  <defs>
+    <mask id="open-core">
+      <rect width="128" height="128" fill="#fff"/>
+      <circle cx="64" cy="64" r="15" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="currentColor" mask="url(#open-core)">
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(0 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(45 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(90 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(135 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(180 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(225 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(270 64 64)"/>
+    <rect x="56" y="8" width="16" height="48" rx="8" transform="rotate(315 64 64)"/>
+  </g>
+  <circle cx="64" cy="64" r="7" fill="currentColor"/>
+</svg>

@@ -2,7 +2,7 @@
 
 This folder is the public contract for OpenKey: how keys are derived, how vault items are encrypted, and what the sync server is allowed to see.
 
-It is **not** the official Flutter app. That client is proprietary. Independent implementations (the [browser extension](https://github.com/OpenSelfHosting/OpenKey_extension) and [CLI](https://github.com/OpenSelfHosting/OpenKey_cli)) follow this spec.
+Product site: [openkey.openselfhosting.com](https://openkey.openselfhosting.com). It is **not** the official Flutter app. That client is proprietary. Independent implementations (the [browser extension](https://github.com/OpenSelfHosting/OpenKey_extension) and [CLI](https://github.com/OpenSelfHosting/OpenKey_cli)) follow this spec.
 
 | Document | Contents |
 |----------|----------|

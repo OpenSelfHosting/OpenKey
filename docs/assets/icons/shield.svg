@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" role="img" aria-hidden="true">
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#FFFFFF" stroke="#D5E8DC" stroke-width="1.25"/>
+  <path fill="#1B6B4A" d="M32 8.5
+    C42 8.5 50.5 13.5 51.5 15.2
+    A3 3 0 0 1 53 18.2
+    V34.5
+    C53 47 39.5 54.2 32 56.5
+    C24.5 54.2 11 47 11 34.5
+    V18.2
+    A3 3 0 0 1 12.5 15.2
+    C13.5 13.5 22 8.5 32 8.5Z"/>
+  <g transform="translate(32 32) scale(0.16)" fill="#82C9A1">
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(0)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(45)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(90)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(135)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(180)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(225)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(270)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(315)"/>
+    <circle r="7"/>
+  </g>
+</svg>

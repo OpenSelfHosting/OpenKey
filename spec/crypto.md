@@ -17,9 +17,10 @@ utf8( trim(email).toLowerCase() + ":" + master_password )
 | Memory | 65536 KiB |
 | Iterations | 3 |
 | Parallelism | 4 |
+| Hash length | 32 |
 | Output | 32-byte **master key** |
 
-KDF parameters are stored as JSON on the account (`algorithm`, `memory`, `iterations`, `parallelism`, `hashLength`) so clients can evolve settings later.
+KDF parameters are stored as JSON on the account (`algorithm`, `memory`, `iterations`, `parallelism`, `hashLength`) so clients can evolve settings later. Default JSON matches the table above (`algorithm`: `argon2id`).
 
 ## Auth hash
 

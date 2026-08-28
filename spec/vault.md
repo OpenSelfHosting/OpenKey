@@ -91,4 +91,4 @@ Optional keys may be omitted when empty. `totp` / `passkey` / `attachments` / cu
 
 ## Sync metadata (not inside the payload)
 
-Each row on the server has a client-generated `uuid`, optional `collection_uuid`, integer `revision` (last-write-wins), and opaque `encrypted_payload` (AES-GCM of the JSON above). Soft-deleted items remain as tombstones until peers sync.
+Each row on the server has a client-generated `uuid`, optional `collection_uuid`, integer `revision` (last-write-wins), and opaque `encrypted_payload` (AES-GCM of the JSON above). Nested collections use `parent_uuid` on the collection row (not inside this JSON). Soft-deleted items remain as tombstones until peers sync.

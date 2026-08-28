@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="48" height="48" role="img" aria-hidden="true">
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#FFFFFF" stroke="#D5E8DC" stroke-width="1.25"/>
+  <rect x="9" y="14" width="33" height="24" rx="6" fill="#1B6B4A"/>
+  <rect x="13" y="18" width="25" height="16" rx="3.5" fill="#FFFFFF"/>
+  <g transform="translate(25.5 26) scale(0.095)" fill="#0D9488">
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(0)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(45)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(90)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(135)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(180)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(225)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(270)"/>
+    <rect x="-8" y="-56" width="16" height="40" rx="8" transform="rotate(315)"/>
+    <circle r="7"/>
+  </g>
+  <rect x="19" y="38" width="13" height="4" rx="2" fill="#0F4A32"/>
+  <rect x="15" y="42" width="21" height="3.5" rx="1.75" fill="#0F4A32"/>
+  <rect x="38" y="22" width="16" height="27" rx="4.5" fill="#0D9488"/>
+  <rect x="41.2" y="26" width="9.6" height="17" rx="2.2" fill="#FFFFFF"/>
+  <rect x="43.6" y="45.2" width="4.8" height="1.8" rx="0.9" fill="#82C9A1"/>
+</svg>

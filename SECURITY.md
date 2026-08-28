@@ -38,7 +38,8 @@ Out of scope (unless you can show a practical exploit chain):
 ## Security model (summary)
 
 - The sync server stores **ciphertext only**. Master passwords and plaintext vault keys must never leave the client.
-- Access JWTs are short-lived; refresh tokens are hashed at rest and rotated on use.
+- Access JWTs are short-lived; refresh tokens are hashed at rest and rotated on use. Reuse of a rotated refresh token revokes all sessions for that user.
 - Soft-deleted vault items remain as tombstones until peers sync; last-write-wins uses per-item `revision`.
+- Nearby LAN sync is peer-to-peer. It does not go through the API.
 
-Full threat model: [openkey_docs/guide/security.md](https://openselfhosting.com/guide/security) and [`spec/crypto.md`](./spec/crypto.md).
+Full threat model: [Security guide](https://openkey.openselfhosting.com/guide/security) and [`spec/crypto.md`](./spec/crypto.md).
