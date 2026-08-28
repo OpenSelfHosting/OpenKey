@@ -36,10 +36,10 @@
 <table>
   <tr>
     <td width="50%" valign="bottom" align="center">
-      <img src="docs/screenshots/01-desktop.png" alt="OpenKey vault on desktop" width="100%" height="350">
+      <img src="docs/screenshots/01-desktop.png" alt="OpenKey vault on desktop" width="100%">
     </td>
     <td width="50%" valign="bottom" align="center">
-      <img src="docs/screenshots/02-mobile.png" alt="OpenKey vault on mobile" width="100%" height="100">
+      <img src="docs/screenshots/02-mobile.png" alt="OpenKey vault on mobile" width="100%">
     </td>
   </tr>
   <tr>
