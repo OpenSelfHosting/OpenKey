@@ -58,35 +58,29 @@ The **protocol is open**. The official app is not. Audit the cryptography and se
 
 <table>
   <tr>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/lock.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Zero-knowledge</strong><br>
       <sub>Argon2id on the client. AES-256-GCM for vault payloads. The master password never leaves the device.</sub>
     </td>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/server.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Self-hosted sync</strong><br>
       <sub>Optional FastAPI + PostgreSQL API you run. Personal vaults work fully offline.</sub>
     </td>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/devices.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Every major platform</strong><br>
       <sub>Official app on Android, iOS, macOS, Linux, and Windows. Nearby LAN sync on Pro.</sub>
     </td>
   </tr>
   <tr>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/passkey.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Autofill &amp; passkeys</strong><br>
       <sub>System credential provider plus an MV3 extension for Chrome, Edge, Firefox, and other Chromium browsers.</sub>
     </td>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/extension.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Open clients</strong><br>
       <sub>Browser extension and CLI implement the same protocol. Independent implementations are welcome.</sub>
     </td>
-    <td width="33%" valign="top" align="center">
-      <img src="docs/assets/icons/shield.svg" width="56" height="56" alt=""><br>
+    <td width="33%" valign="top">
       <strong>Audit the math</strong><br>
       <sub>KDF, vault format, and sync contract are public. Report issues privately — see Security.</sub>
     </td>
