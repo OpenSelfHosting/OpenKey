@@ -128,7 +128,6 @@ Capture notes: [`docs/screenshots/README.md`](./docs/screenshots/README.md).
 | Sync server | [OpenKey_server](https://github.com/OpenSelfHosting/OpenKey_server) | MIT |
 | Browser extension | [OpenKey_extension](https://github.com/OpenSelfHosting/OpenKey_extension) | MIT |
 | Developer CLI | [OpenKey_cli](https://github.com/OpenSelfHosting/OpenKey_cli) | MIT |
-| Documentation site | [OpenKey_docs](https://github.com/OpenSelfHosting/OpenKey_docs) | MIT |
 
 Product site: [openkey.openselfhosting.com](https://openkey.openselfhosting.com). Company: [openselfhosting.com](https://openselfhosting.com).
 
