@@ -8,8 +8,6 @@ The server is **untrusted for confidentiality**. It may store, delete, or withho
 
 It **is** trusted for availability and for comparing `auth_hash` at login.
 
-Nearby LAN sync between devices is peer-to-peer. It does **not** use this API.
-
 ## Account material (still not plaintext vault)
 
 Stored per user, among other fields:
@@ -65,9 +63,11 @@ Ciphertext only. Max size **20 MB**. Prefer multipart upload; batch `/sync` may 
 | Method | Path | Notes |
 |--------|------|--------|
 | `GET` | `/attachments` | Metadata only |
-| `POST` | `/attachments` | Multipart: `uuid`, `entry_uuid`, `filename`, `size_bytes`, file field `file` |
-| `GET` | `/attachments/{uuid}/content` | Stream encrypted bytes |
+| `POST` | `/attachments` | Multipart: `uuid`, `entry_uuid`, `filename`, `size_bytes`, optional `content_type`, optional `revision`, file field `file` |
+| `GET` | `/attachments/{uuid}/content` | Stream encrypted bytes (`application/octet-stream`) |
 | `DELETE` | `/attachments/{uuid}` | Soft delete |
+
+`content_type` is optional original MIME metadata (e.g. `image/png`). The content endpoint always streams opaque ciphertext.
 
 ## Sync
 
@@ -89,6 +89,6 @@ Clients wrap keys for another user’s X25519 public key with sealed boxes ([cry
 
 Production `CORS_ORIGINS` must be an explicit list. Never `*`. Browser-extension origins (`chrome-extension://`, `moz-extension://`) may be allowed separately when the extension talks to the API in standalone mode (`CORS_ALLOW_BROWSER_EXTENSIONS` on the reference server).
 
-## Official vs open clients
+## Clients
 
-Any client that implements [crypto.md](./crypto.md), [vault.md](./vault.md), and this API can sync. The **official app** is a proprietary client of this protocol. The extension (standalone mode) and CLI (session mode) are open implementations.
+Any client that implements [crypto.md](./crypto.md), [vault.md](./vault.md), and this API can sync. The official [OpenKey app](../README.md), browser extension (standalone mode), and CLI (session mode) are open-source implementations.

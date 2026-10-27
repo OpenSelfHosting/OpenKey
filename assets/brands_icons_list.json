@@ -1,0 +1,614 @@
+[
+  {
+    "name": "Admob",
+    "path": "admob.svg"
+  },
+  {
+    "name": "Adobe",
+    "path": "adobe.svg"
+  },
+  {
+    "name": "Adobe XD",
+    "path": "adobe-xd.svg"
+  },
+  {
+    "name": "Adobe aero",
+    "path": "adobe-aero.svg"
+  },
+  {
+    "name": "Adobe animate",
+    "path": "adobe-animate.svg"
+  },
+  {
+    "name": "Adobe creative cloud",
+    "path": "adobe-creative-cloud.svg"
+  },
+  {
+    "name": "Adobe illustrator",
+    "path": "adobe-illustrator.svg"
+  },
+  {
+    "name": "Adobe lightroom",
+    "path": "adobe-lightroom.svg"
+  },
+  {
+    "name": "Adobe photoshop",
+    "path": "adobe-photoshop.svg"
+  },
+  {
+    "name": "Adobe premiere pro",
+    "path": "adobe-premiere-pro.svg"
+  },
+  {
+    "name": "Adobe rush",
+    "path": "adobe-rush.svg"
+  },
+  {
+    "name": "Adobe stock",
+    "path": "adobe-stock.svg"
+  },
+  {
+    "name": "Airbnb",
+    "path": "airbnb.svg"
+  },
+  {
+    "name": "Airtel",
+    "path": "airtel.svg"
+  },
+  {
+    "name": "Alibaba",
+    "path": "alibaba.svg"
+  },
+  {
+    "name": "Amazon",
+    "path": "amazon.svg"
+  },
+  {
+    "name": "Amazon prime",
+    "path": "amazon-prime.svg"
+  },
+  {
+    "name": "Android",
+    "path": "android.svg"
+  },
+  {
+    "name": "Aol",
+    "path": "aol.svg"
+  },
+  {
+    "name": "Apple",
+    "path": "apple.svg"
+  },
+  {
+    "name": "Audible",
+    "path": "audible.svg"
+  },
+  {
+    "name": "Aws",
+    "path": "aws.svg"
+  },
+  {
+    "name": "Azure",
+    "path": "azure.svg"
+  },
+  {
+    "name": "Bank",
+    "path": "bank.svg"
+  },
+  {
+    "name": "Behance",
+    "path": "behance.svg"
+  },
+  {
+    "name": "Binance",
+    "path": "binance.svg"
+  },
+  {
+    "name": "Bing",
+    "path": "bing.svg"
+  },
+  {
+    "name": "Bitbucket",
+    "path": "bitbucket.svg"
+  },
+  {
+    "name": "Bitcoin",
+    "path": "bitcoin.svg"
+  },
+  {
+    "name": "Blender",
+    "path": "blender.svg"
+  },
+  {
+    "name": "Blogger",
+    "path": "blogger.svg"
+  },
+  {
+    "name": "Bus",
+    "path": "bus.svg"
+  },
+  {
+    "name": "Cab",
+    "path": "cab.svg"
+  },
+  {
+    "name": "Canva",
+    "path": "canva.svg"
+  },
+  {
+    "name": "ChatGPT",
+    "path": "chatgpt.svg"
+  },
+  {
+    "name": "Cisco",
+    "path": "cisco.svg"
+  },
+  {
+    "name": "ClassLink",
+    "path": "classlink.svg"
+  },
+  {
+    "name": "Claude AI",
+    "path": "claude-ai.svg"
+  },
+  {
+    "name": "Clever",
+    "path": "clever.svg"
+  },
+  {
+    "name": "Cloud",
+    "path": "cloud.svg"
+  },
+  {
+    "name": "Cloudflare",
+    "path": "cloudflare.svg"
+  },
+  {
+    "name": "Contabo",
+    "path": "contabo.svg"
+  },
+  {
+    "name": "Copilot",
+    "path": "copilot.svg"
+  },
+  {
+    "name": "Coursera",
+    "path": "coursera.svg"
+  },
+  {
+    "name": "cPanel",
+    "path": "cpanel.svg"
+  },
+  {
+    "name": "Debian",
+    "path": "debian.svg"
+  },
+  {
+    "name": "DeepSeek",
+    "path": "deepseek.svg"
+  },
+  {
+    "name": "Dialogflow",
+    "path": "dialogflow.svg"
+  },
+  {
+    "name": "Discord",
+    "path": "discord.svg"
+  },
+  {
+    "name": "Disney",
+    "path": "disney.svg"
+  },
+  {
+    "name": "Disqus",
+    "path": "disqus.svg"
+  },
+  {
+    "name": "Docker",
+    "path": "docker.svg"
+  },
+  {
+    "name": "Dominos pizza",
+    "path": "dominos-pizza.svg"
+  },
+  {
+    "name": "Dribbble",
+    "path": "dribbble.svg"
+  },
+  {
+    "name": "DropBox",
+    "path": "dropbox.svg"
+  },
+  {
+    "name": "Ebay",
+    "path": "ebay.svg"
+  },
+  {
+    "name": "Ethereum",
+    "path": "ethereum.svg"
+  },
+  {
+    "name": "Evernote",
+    "path": "evernote.svg"
+  },
+  {
+    "name": "Facebook",
+    "path": "facebook.svg"
+  },
+  {
+    "name": "Fedex",
+    "path": "fedex.svg"
+  },
+  {
+    "name": "Figma",
+    "path": "figma.svg"
+  },
+  {
+    "name": "Firebase",
+    "path": "firebase.svg"
+  },
+  {
+    "name": "Firefox",
+    "path": "firefox-browser.svg"
+  },
+  {
+    "name": "Fiverr",
+    "path": "fiverr.svg"
+  },
+  {
+    "name": "Flickr",
+    "path": "flickr.svg"
+  },
+  {
+    "name": "Flipkart",
+    "path": "flipkart.svg"
+  },
+  {
+    "name": "Framer",
+    "path": "framer.svg"
+  },
+  {
+    "name": "Gemini",
+    "path": "gemini.svg"
+  },
+  {
+    "name": "Giant Swarm",
+    "path": "giantswarm.svg"
+  },
+  {
+    "name": "Git",
+    "path": "git.svg"
+  },
+  {
+    "name": "Github",
+    "path": "github.svg"
+  },
+  {
+    "name": "Gitlab",
+    "path": "gitlab.svg"
+  },
+  {
+    "name": "Gmail",
+    "path": "gmail.svg"
+  },
+  {
+    "name": "Google",
+    "path": "google.svg"
+  },
+  {
+    "name": "Google Analytics",
+    "path": "google-analytics.svg"
+  },
+  {
+    "name": "Google Arts",
+    "path": "google-arts-and-culture.svg"
+  },
+  {
+    "name": "Google Cloud",
+    "path": "google-cloud.svg"
+  },
+  {
+    "name": "Google Tensorflow",
+    "path": "google-tensorflow.svg"
+  },
+  {
+    "name": "Google wallet",
+    "path": "google-wallet.svg"
+  },
+  {
+    "name": "HackerOne",
+    "path": "hackerone.svg"
+  },
+  {
+    "name": "HackTheBox",
+    "path": "hackthebox.svg"
+  },
+  {
+    "name": "Heroku",
+    "path": "heroku.svg"
+  },
+  {
+    "name": "IMDB",
+    "path": "imdb.svg"
+  },
+  {
+    "name": "Instagram",
+    "path": "instagram.svg"
+  },
+  {
+    "name": "Likee",
+    "path": "likee.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "path": "linkedin.svg"
+  },
+  {
+    "name": "Linux",
+    "path": "linux.svg"
+  },
+  {
+    "name": "Mac",
+    "path": "mac.svg"
+  },
+  {
+    "name": "Mail",
+    "path": "mail.svg"
+  },
+  {
+    "name": "Mcdonalds",
+    "path": "mcdonalds.svg"
+  },
+  {
+    "name": "Medium",
+    "path": "medium.svg"
+  },
+  {
+    "name": "Microsoft",
+    "path": "microsoft.svg"
+  },
+  {
+    "name": "Microsoft Outlook",
+    "path": "microsoft-outlook.svg"
+  },
+  {
+    "name": "Mistral AI",
+    "path": "mistral-ai.svg"
+  },
+  {
+    "name": "MongoDB",
+    "path": "mongodb.svg"
+  },
+  {
+    "name": "Netflix",
+    "path": "netflix.svg"
+  },
+  {
+    "name": "Nginx",
+    "path": "nginx.svg"
+  },
+  {
+    "name": "Notion",
+    "path": "notion.svg"
+  },
+  {
+    "name": "Nvidia",
+    "path": "nvidia.svg"
+  },
+  {
+    "name": "Office",
+    "path": "office.svg"
+  },
+  {
+    "name": "OneDrive",
+    "path": "onedrive.svg"
+  },
+  {
+    "name": "Opera",
+    "path": "opera.svg"
+  },
+  {
+    "name": "Oracle",
+    "path": "oracle.svg"
+  },
+  {
+    "name": "Origin",
+    "path": "origin.svg"
+  },
+  {
+    "name": "Payment",
+    "path": "payment.svg"
+  },
+  {
+    "name": "Paypal",
+    "path": "paypal.svg"
+  },
+  {
+    "name": "Pinterest",
+    "path": "pinterest.svg"
+  },
+  {
+    "name": "Play Console",
+    "path": "google-play-console.svg"
+  },
+  {
+    "name": "Playstation",
+    "path": "playstation.svg"
+  },
+  {
+    "name": "Postman",
+    "path": "postman.svg"
+  },
+  {
+    "name": "Product hunt",
+    "path": "product-hunt.svg"
+  },
+  {
+    "name": "Rasberry Pi",
+    "path": "rasberry_pi.svg"
+  },
+  {
+    "name": "React",
+    "path": "react.svg"
+  },
+  {
+    "name": "Reddit",
+    "path": "reddit.svg"
+  },
+  {
+    "name": "Redis",
+    "path": "redis.svg"
+  },
+  {
+    "name": "Server",
+    "path": "server.svg"
+  },
+  {
+    "name": "Shazam",
+    "path": "shazam.svg"
+  },
+  {
+    "name": "Shopify",
+    "path": "shopify.svg"
+  },
+  {
+    "name": "Sketch",
+    "path": "sketch.svg"
+  },
+  {
+    "name": "Sketchfab",
+    "path": "sketch-fab.svg"
+  },
+  {
+    "name": "Skype",
+    "path": "skype.svg"
+  },
+  {
+    "name": "Slack",
+    "path": "slack.svg"
+  },
+  {
+    "name": "Snapchat",
+    "path": "snapchat.svg"
+  },
+  {
+    "name": "Sound Cloud",
+    "path": "soundcloud.svg"
+  },
+  {
+    "name": "Spotify",
+    "path": "spotify.svg"
+  },
+  {
+    "name": "Stack Overflow",
+    "path": "stackoverflow.svg"
+  },
+  {
+    "name": "Stripe",
+    "path": "stripe.svg"
+  },
+  {
+    "name": "Telegram",
+    "path": "telegram.svg"
+  },
+  {
+    "name": "Tesla",
+    "path": "tesla.svg"
+  },
+  {
+    "name": "Tiktok",
+    "path": "tiktok.svg"
+  },
+  {
+    "name": "Tinder",
+    "path": "tinder.svg"
+  },
+  {
+    "name": "Tor",
+    "path": "tor.svg"
+  },
+  {
+    "name": "Train",
+    "path": "train.svg"
+  },
+  {
+    "name": "travis CI",
+    "path": "travis-ci.svg"
+  },
+  {
+    "name": "Trello",
+    "path": "trello.svg"
+  },
+  {
+    "name": "Twilio",
+    "path": "twilio.svg"
+  },
+  {
+    "name": "Uber",
+    "path": "uber.svg"
+  },
+  {
+    "name": "Ubuntu",
+    "path": "ubuntu.svg"
+  },
+  {
+    "name": "Udemy",
+    "path": "udemy.svg"
+  },
+  {
+    "name": "Upwork",
+    "path": "upwork.svg"
+  },
+  {
+    "name": "VSCode",
+    "path": "vscode.svg"
+  },
+  {
+    "name": "Vimeo",
+    "path": "vimeo.svg"
+  },
+  {
+    "name": "Waze",
+    "path": "waze.svg"
+  },
+  {
+    "name": "Webflow",
+    "path": "webflow.svg"
+  },
+  {
+    "name": "WeChat",
+    "path": "wechat.svg"
+  },
+  {
+    "name": "Windows",
+    "path": "windows.svg"
+  },
+  {
+    "name": "Wix",
+    "path": "wix.svg"
+  },
+  {
+    "name": "WordPress",
+    "path": "wordpress.svg"
+  },
+  {
+    "name": "X (Twitter)",
+    "path": "x.svg"
+  },
+  {
+    "name": "XBox",
+    "path": "xbox.svg"
+  },
+  {
+    "name": "Yahoo",
+    "path": "yahoo.svg"
+  },
+  {
+    "name": "Youtube",
+    "path": "youtube.svg"
+  },
+  {
+    "name": "Location Light",
+    "path": "location_light.svg"
+  }
+]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill_service_label">OpenKey</string>
+    <string name="autofill_unlock_openkey">Unlock OpenKey</string>
+    <string name="autofill_login">Login</string>
+    <string name="autofill_password_masked">••••••••</string>
+    <string name="autofill_manage_passwords">Manage passwords…</string>
+    <string name="autofill_suggest_password">Suggest password</string>
+    <string name="autofill_biometric_title">Confirm with OpenKey</string>
+    <string name="autofill_biometric_subtitle">Verify it\'s you to autofill this login</string>
+    <string name="autofill_biometric_cancel">Cancel</string>
+</resources>
