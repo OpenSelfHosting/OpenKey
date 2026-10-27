@@ -1,0 +1,34 @@
+name: flutter_credit_card
+description: A Credit Card widget package with support of entering card details, and animations like card flip
+  and float.
+version: 4.1.0
+homepage: https://github.com/simformsolutions/flutter_credit_card
+publish_to: none
+
+# Desktop (Linux/Windows/macOS) skips plugin assets when the package is a
+# mobile/web plugin. Ship as a Dart package so chip/brand icons and the
+# card font are bundled on every platform.
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.1.6
+  flutter_web_plugins:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.3
+
+flutter:
+  assets:
+    - icons/
+  fonts:
+    - family: halter
+      fonts:
+        - asset: font/halter.ttf

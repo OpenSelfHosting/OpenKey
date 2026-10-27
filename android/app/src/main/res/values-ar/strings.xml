@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="autofill_service_label">OpenKey</string>
+    <string name="autofill_unlock_openkey">فتح OpenKey</string>
+    <string name="autofill_login">تسجيل الدخول</string>
+    <string name="autofill_password_masked">••••••••</string>
+    <string name="autofill_manage_passwords">إدارة كلمات المرور…</string>
+    <string name="autofill_suggest_password">اقتراح كلمة مرور</string>
+    <string name="autofill_biometric_title">التأكيد مع OpenKey</string>
+    <string name="autofill_biometric_subtitle">تحقق أنه أنت لتعبئة بيانات الدخول</string>
+    <string name="autofill_biometric_cancel">إلغاء</string>
+</resources>

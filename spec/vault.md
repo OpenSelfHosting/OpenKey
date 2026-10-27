@@ -37,6 +37,19 @@ Typical decrypted object:
 
 Optional keys may be omitted when empty. `totp` / `passkey` / `attachments` / custom `fields` use the shapes implemented by the official app and mirrored in the [browser extension](https://github.com/OpenSelfHosting/OpenKey_extension) TypeScript types.
 
+### Attachment metadata (inside login payload)
+
+```json
+{
+  "id": "…",
+  "name": "receipt.png",
+  "size": 12345,
+  "cipher": "…"
+}
+```
+
+`cipher` may be omitted when the blob lives only on the server / sync attachment row. Server attachment rows also carry optional `content_type` (MIME) outside this JSON — metadata only; ciphertext unchanged.
+
 ## Payment card
 
 ```json

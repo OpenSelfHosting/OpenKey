@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="docs/assets/icon-rounded.png" width="128" alt="OpenKey">
+  <img src="docs/assets/icon-rounded.png" width="96" alt="OpenKey">
 </p>
 
 <h1 align="center">OpenKey</h1>
 
 <p align="center">
-  <strong>Self-hosted, zero-knowledge password manager</strong><br>
+  <strong>Open-source, self-hosted, zero-knowledge password manager</strong><br>
   Encrypt on the device. Sync ciphertext only. You keep the keys.
 </p>
 
 <p align="center">
   <a href="https://github.com/OpenSelfHosting"><img src="https://img.shields.io/badge/by-OpenSelfHosting-0F766E?style=flat-square" alt="OpenSelfHosting"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/spec%20license-MIT-14B8A6?style=flat-square" alt="MIT license"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/app%20license-MIT-14B8A6?style=flat-square" alt="MIT license"></a>
   <a href="./spec/"><img src="https://img.shields.io/badge/protocol-open-0B1220?style=flat-square" alt="Open protocol"></a>
   <a href="./spec/crypto.md"><img src="https://img.shields.io/badge/sync-ciphertext%20only-134E4A?style=flat-square" alt="Ciphertext-only sync"></a>
   <a href="./SECURITY.md"><img src="https://img.shields.io/badge/security-policy-042F2E?style=flat-square" alt="Security policy"></a>
@@ -19,8 +19,6 @@
 
 <p align="center">
   <a href="https://openkey.openselfhosting.com">Website</a>
-  ·
-  <a href="https://openkey.openselfhosting.com/guide/download">Download</a>
   ·
   <a href="./spec/">Protocol spec</a>
   ·
@@ -33,13 +31,33 @@
   Android · iOS · macOS · Linux · Windows
 </p>
 
+<p align="center">
+  <a href="https://apps.microsoft.com/detail/9MXNBRPMDT53"><img src="https://img.shields.io/badge/Microsoft_Store-Download-0078D4?style=for-the-badge&amp;logo=microsoftstore&amp;logoColor=white" alt="Get OpenKey from the Microsoft Store"></a>
+  &nbsp;
+  <a href="https://play.google.com/store/apps/details?id=com.openselfhosting.openkey"><img src="https://img.shields.io/badge/Google_Play-Download-414141?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white" alt="Get OpenKey on Google Play"></a>
+</p>
+
+<p align="center"><a href="https://openkey.openselfhosting.com/guide/download">More platforms and download options →</a></p>
+
+<p align="center">
+  <a href="#features">Features</a>
+  ·
+  <a href="#product-screenshots">Screenshots</a>
+  ·
+  <a href="#self-host-the-sync-server">Self-hosting</a>
+  ·
+  <a href="#how-encryption-works">Encryption</a>
+  ·
+  <a href="#security">Security</a>
+</p>
+
 <table>
   <tr>
-    <td width="50%" valign="bottom" align="center">
+    <td width="68%" valign="middle" align="center">
       <img src="docs/screenshots/01-desktop.png" alt="OpenKey vault on desktop" width="100%">
     </td>
-    <td width="50%" valign="bottom" align="center">
-      <img src="docs/screenshots/02-mobile.png" alt="OpenKey vault on mobile" height=300>
+    <td width="32%" valign="middle" align="center">
+      <img src="docs/screenshots/02-mobile.png" alt="OpenKey vault on mobile" width="62%">
     </td>
   </tr>
   <tr>
@@ -50,48 +68,26 @@
 
 OpenKey is a password manager built so the optional sync server **cannot read your vault**. Clients encrypt collection names, logins, cards, crypto wallets, secrets, and attachments on the device. The server stores opaque ciphertext, KDF parameters, and a wrapped vault key — never the master password.
 
-The **protocol is open**. The official app is not. Audit the cryptography and self-host from this repository and the MIT-licensed packages. Install the official client from [GitHub Releases](https://github.com/OpenSelfHosting/OpenKey/releases) or the [download page](https://openkey.openselfhosting.com/guide/download).
+The OpenKey app and protocol are open source under the MIT License. This repository contains the official Flutter app source, so you can inspect, build, and adapt the app yourself. Official releases are available from [GitHub Releases](https://github.com/OpenSelfHosting/OpenKey/releases) and the [download page](https://openkey.openselfhosting.com/guide/download).
+
+## Build from source
+
+Install Flutter with a Dart SDK version allowed by [`pubspec.yaml`](./pubspec.yaml), then run:
+
+```bash
+flutter pub get
+flutter run
+```
+
+Select a connected device or desktop target with Flutter's `-d` option. Each target platform may require its own Flutter toolchain and system dependencies.
 
 ---
 
-## Features
-
-<table>
-  <tr>
-    <td width="33%" valign="top">
-      <strong>Zero-knowledge</strong><br>
-      <sub>Argon2id on the client. AES-256-GCM for vault payloads. The master password never leaves the device.</sub>
-    </td>
-    <td width="33%" valign="top">
-      <strong>Self-hosted sync</strong><br>
-      <sub>Optional FastAPI + PostgreSQL API you run. Personal vaults work fully offline.</sub>
-    </td>
-    <td width="33%" valign="top">
-      <strong>Every major platform</strong><br>
-      <sub>Official app on Android, iOS, macOS, Linux, and Windows. Nearby LAN sync on Pro.</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="33%" valign="top">
-      <strong>Autofill &amp; passkeys</strong><br>
-      <sub>System credential provider plus an MV3 extension for Chrome, Edge, Firefox, and other Chromium browsers.</sub>
-    </td>
-    <td width="33%" valign="top">
-      <strong>Open clients</strong><br>
-      <sub>Browser extension and CLI implement the same protocol. Independent implementations are welcome.</sub>
-    </td>
-    <td width="33%" valign="top">
-      <strong>Audit the math</strong><br>
-      <sub>KDF, vault format, and sync contract are public. Report issues privately — see Security.</sub>
-    </td>
-  </tr>
-</table>
-
-The vault holds logins (with TOTP), payment cards, crypto wallets, developer secrets, nested collections, and encrypted attachments. **OpenKey Pro** removes free-tier caps (50 logins, 3 folders / cards / wallets / secrets) and unlocks export, `.okbak` backups, Nearby, organizations, sharing, and attachments. Details: [Pricing](https://openkey.openselfhosting.com/pricing).
 
 ---
 
 ## Product screenshots
+
 
 <table>
   <tr>
@@ -120,18 +116,24 @@ Capture notes: [`docs/screenshots/README.md`](./docs/screenshots/README.md).
 
 ---
 
-## What you can open and audit
+## OpenKey projects
 
 | Piece | Repository | License |
 |-------|------------|---------|
+| Official Flutter app | This repository | MIT |
 | Protocol spec (KDF, vault payload, sync) | [`spec/`](./spec/) in this repo | MIT |
 | Sync server | [OpenKey_server](https://github.com/OpenSelfHosting/OpenKey_server) | MIT |
 | Browser extension | [OpenKey_extension](https://github.com/OpenSelfHosting/OpenKey_extension) | MIT |
 | Developer CLI | [OpenKey_cli](https://github.com/OpenSelfHosting/OpenKey_cli) | MIT |
+| Documentation site | [OpenKey_docs](https://github.com/OpenSelfHosting/OpenKey_docs) | MIT |
+
+An alternative MongoDB API implementation is maintained in `OpenKey_kube_server`;
+it is not a drop-in replacement for `OpenKey_server`. Kubernetes overlays are
+maintained separately in `OpenKey_kubernetes`.
 
 Product site: [openkey.openselfhosting.com](https://openkey.openselfhosting.com). Company: [openselfhosting.com](https://openselfhosting.com).
 
-The official **OpenKey app** (Android, iOS, macOS, Linux, Windows) is proprietary. Source is not published. Binaries for that client are attached to **this** repository’s GitHub Releases. Use of the app is under the [Terms of Service](https://openkey.openselfhosting.com/terms). [Privacy Policy](https://openkey.openselfhosting.com/privacy). Subscriptions (**OpenKey Pro**) are sold through the app stores (RevenueCat).
+Official app releases are attached to **this** repository’s GitHub Releases and are also available through supported app stores. **OpenKey Pro** subscriptions are sold through app stores (RevenueCat). See the [Terms of Service](https://openkey.openselfhosting.com/terms) and [Privacy Policy](https://openkey.openselfhosting.com/privacy) for product and service details.
 
 ```mermaid
 flowchart LR
@@ -150,16 +152,6 @@ flowchart LR
 
 Nearby LAN sync (Pro) is peer-to-peer on the local network. It does **not** go through the API.
 
----
-
-## Download the app
-
-| Channel | What you get |
-|---------|----------------|
-| **[GitHub Releases](https://github.com/OpenSelfHosting/OpenKey/releases)** | Linux (AppImage, `.deb`, `.rpm`, `.tar.gz`), Android APK/AAB, and desktop installers as they are published |
-| **Stores** | Google Play, App Store, Mac App Store, Microsoft Store, Flathub, Snap — see [Download](https://openkey.openselfhosting.com/guide/download) |
-
-Application id: `com.openselfhosting.openkey`. Do not expect a public `flutter build` of the official client.
 
 ---
 
@@ -196,23 +188,41 @@ Details: [`spec/crypto.md`](./spec/crypto.md) · [Security](https://openkey.open
 
 ---
 
-## Browser extension and CLI
+## Browser extension
 
-Open source. They speak the same protocol as the official app (standalone vault + optional native bridge to the **unlocked** desktop or Android app).
+The open-source extension supports Chrome, Edge, Brave, Vivaldi, LibreWolf, and Firefox. Use it with your self-hosted server as a standalone vault, or connect it to an **unlocked desktop app** to fill and save without a separate extension unlock. It can autofill logins and cards, capture updated logins, and work with passkeys.
 
 ```bash
-# Extension (Chrome / Edge / Firefox)
 git clone https://github.com/OpenSelfHosting/OpenKey_extension.git
-cd OpenKey_extension && npm install && npm run build
-# load dist/ unpacked in chrome://extensions or about:debugging
-
-# CLI — Node.js 20+
-npm install -g openkey-cli
+cd OpenKey_extension
+npm install
+npm run build
 ```
 
-Vault CLI commands need the official app unlocked (native bridge, including Termux on Android) **or** `openkey login` / `unlock` against your server.
+Load the generated `dist/` directory as an unpacked extension in Chromium browsers, or select `dist/manifest.json` from Firefox’s `about:debugging` page. See the [Browser extension guide](https://openkey.openselfhosting.com/guide/extension) for setup, permissions, keyboard shortcuts, and connecting the desktop app.
 
-Guides: [Extension](https://openkey.openselfhosting.com/guide/extension) · [CLI](https://openkey.openselfhosting.com/guide/cli)
+---
+
+## Command-line interface (CLI)
+
+The open-source `openkey` CLI is for managing developer secrets and other vault items from a terminal. Password generation works offline. Vault commands can use the **unlocked desktop app** over its local bridge, or an optional self-hosted server session. Node.js 20+ is required.
+
+```bash
+npm install -g openkey-cli
+openkey --version
+openkey status
+```
+
+For server-based use, configure the server, sign in, and unlock a short-lived CLI session:
+
+```bash
+openkey config set-server http://localhost:8000
+openkey login --email you@example.com
+eval $(openkey unlock)
+openkey sync
+```
+
+On Android, the CLI can also connect to the unlocked app through Termux. See the [CLI guide](https://openkey.openselfhosting.com/guide/cli) for available commands, authentication, Termux setup, and security notes.
 
 ---
 
@@ -220,8 +230,15 @@ Guides: [Extension](https://openkey.openselfhosting.com/guide/extension) · [CLI
 
 Report vulnerabilities **privately** to **security@openselfhosting.com** — do not open a public issue for exploitable bugs. See [SECURITY.md](./SECURITY.md).
 
+## Contributing
+
+Issues and pull requests for bugs, documentation, and improvements are welcome.
+Keep client behavior aligned with [`spec/`](./spec/), and include focused tests
+with code changes. For security vulnerabilities, use the private reporting
+instructions in [SECURITY.md](./SECURITY.md) instead of opening a public issue.
+
 ---
 
 ## License
 
-Documentation and spec in this repository: [MIT](./LICENSE). Official app source: proprietary (separate repository).
+The OpenKey app and documentation in this repository are licensed under the [MIT License](./LICENSE). Vendored and third-party dependencies retain their respective licenses.

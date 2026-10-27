@@ -1,0 +1,207 @@
+name: openkey_app
+description: OpenKey — self-hosted end-to-end encrypted password manager.
+publish_to: 'none'
+version: 1.0.7+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  cupertino_icons: ^1.0.8
+  crypto: ^3.0.7
+  cryptography: ^2.7.0
+  equatable: ^2.0.8
+  flutter_bloc: ^9.1.1
+  get_it: ^9.2.1
+  injectable: ^2.7.1+4
+  go_router: ^17.1.0
+  drift: ^2.32.1
+  sqlite3: ^3.0.0
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  shared_preferences: ^2.5.5
+  http: ^1.6.0
+  image: ^4.8.0
+  uuid: ^4.5.1
+  material_color_utilities: ^0.13.0
+  expressive_ui_kit: ^0.3.1
+  local_auth: ^3.0.2
+  local_auth_android: ^2.0.9
+  local_auth_darwin: ^2.0.3
+  flutter_secure_storage: ^9.2.4
+  no_screenshot: ^2.0.1
+  file_picker: ^10.3.10
+  video_player: ^2.10.1
+  otp: ^3.1.4
+  mobile_scanner: ^6.0.2
+  csv: ^6.0.0
+  vector_graphics: ^1.1.19
+  vector_graphics_compiler: ^1.1.19
+  pro_image_editor: ^11.14.0
+  in_app_review: ^2.0.12
+  package_info_plus: ^9.0.1
+  url_launcher: ^6.3.2
+  archive: ^4.0.9
+  kpasslib: ^1.1.2
+  bitsdojo_window: ^0.1.6
+
+# Patched Linux impl: synthetic mouse events must set GdkDevice
+# (upstream bitsdojo #267 / PR #276 — not released on pub yet).
+# flutter_credit_card is a mobile/web plugin; desktop omits its assets
+# unless we use the vendored Dart-only copy.
+dependency_overrides:
+  bitsdojo_window_linux:
+    path: third_party/bitsdojo_window_linux
+  flutter_credit_card:
+    path: third_party/flutter_credit_card
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.15
+  drift_dev: ^2.32.0
+  injectable_generator: ^2.7.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icon/app_icon.png
+  remove_alpha_ios: true
+  background_color_ios: "#FFFFFF"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: assets/icon/app_icon_forest_day_fg.png
+  adaptive_icon_foreground_inset: 16
+  windows:
+    generate: true
+    image_path: assets/icon/app_icon.png
+    icon_size: 256
+  macos:
+    generate: true
+    image_path: assets/icon/app_icon.png
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/brands_icons_list.json
+    - assets/native/openkey_native_host.py.txt
+    - assets/fonts/figtree/OFL.txt
+    - assets/fonts/google_sans_flex/OFL.txt
+    - assets/fonts/google_sans_flex/TRADEMARKS.txt
+    - assets/fonts/inconsolata/OFL.txt
+    - assets/fonts/noto_kufi/OFL.txt
+    - assets/fonts/nunito/OFL.txt
+    - assets/fonts/open_sans/OFL.txt
+    - assets/fonts/robot_mono/OFL.txt
+    - assets/fonts/roboto_flex/OFL.txt
+    - path: assets/icon/company_logo.svg
+      transformers:
+        - package: vector_graphics_compiler
+    - path: assets/brands/
+      transformers:
+        - package: vector_graphics_compiler
+
+  fonts:
+    - family: Inconsolata
+      fonts:
+        - asset: assets/fonts/inconsolata/Inconsolata-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inconsolata/Inconsolata-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/inconsolata/Inconsolata-Light.ttf
+          weight: 300
+        - asset: assets/fonts/inconsolata/Inconsolata-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inconsolata/Inconsolata-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inconsolata/Inconsolata-SemiBold.ttf
+          weight: 600
+    - family: NotoKufiArabic
+      fonts:
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-Light.ttf
+          weight: 300
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/noto_kufi/NotoKufiArabic-SemiBold.ttf
+          weight: 600
+    - family: RobotoMono
+      fonts:
+        - asset: assets/fonts/robot_mono/RobotoMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/robot_mono/RobotoMono-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/robot_mono/RobotoMono-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/robot_mono/RobotoMono-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/robot_mono/RobotoMono-Light.ttf
+          weight: 300
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/open_sans/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/open_sans/OpenSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/open_sans/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/open_sans/OpenSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/open_sans/OpenSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/open_sans/OpenSans-Light.ttf
+          weight: 300
+    # Material 3 Expressive typefaces
+    - family: GoogleSansFlex
+      fonts:
+        - asset: assets/fonts/google_sans_flex/GoogleSansFlex-Light.ttf
+          weight: 300
+        - asset: assets/fonts/google_sans_flex/GoogleSansFlex-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/google_sans_flex/GoogleSansFlex-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/google_sans_flex/GoogleSansFlex-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/google_sans_flex/GoogleSansFlex-Bold.ttf
+          weight: 700
+    - family: RobotoFlex
+      fonts:
+        - asset: assets/fonts/roboto_flex/RobotoFlex-Variable.ttf
+    - family: Figtree
+      fonts:
+        - asset: assets/fonts/figtree/Figtree-Variable.ttf
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/nunito/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/nunito/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/nunito/Nunito-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/nunito/Nunito-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/nunito/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/nunito/Nunito-ExtraBold.ttf
+          weight: 800
+
+# Bundle SQLite3MultipleCiphers so Drift can open encrypted databases.
+# See: https://drift.simonbinder.eu/platforms/encryption/
+hooks:
+  user_defines:
+    sqlite3:
+      source: sqlite3mc
