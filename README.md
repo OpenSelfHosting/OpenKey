@@ -473,24 +473,70 @@ The extension requests access to websites so it can offer autofill, capture logi
 <details>
 <summary><strong>Command-line interface (CLI)</strong><br></summary>
 
-The open-source `openkey` CLI is for managing developer secrets and other vault items from a terminal. Password generation works offline. Vault commands can use the **unlocked desktop app** over its local bridge, or an optional self-hosted server session. Node.js 20+ is required.
+The open-source `openkey` CLI brings OpenKey into terminal workflows. Generate passwords offline, manage vault items through an unlocked app, or use an optional self-hosted server session. **Node.js 20+** is required.
+
+### Install
 
 ```bash
 npm install -g openkey-cli
 openkey --version
+```
+
+### Choose how the CLI accesses your vault
+
+**Use the unlocked app (recommended for local use):** unlock OpenKey on this device, then check the connection:
+
+```bash
 openkey status
 ```
 
-For server-based use, configure the server, sign in, and unlock a short-lived CLI session:
+Vault commands use the app's local bridge while the app is unlocked. Password generation does not need an unlocked vault:
 
 ```bash
-openkey config set-server http://localhost:8000
-openkey login --email you@example.com
-eval $(openkey unlock)
-openkey sync
+openkey gen -l 24 --no-symbols
+openkey secret list
+printf '%s' "$TOKEN" | openkey secret add --name "GitHub token" --kind apiToken --stdin
 ```
 
-On Android, the CLI can also connect to the unlocked app through Termux. See the [CLI guide](https://openkey.openselfhosting.com/guide/cli) for available commands, authentication, Termux setup, and security notes.
+You can also scan this machine for developer secrets (such as SSH keys, `.env` values, environment variables, and AWS credentials). Preview discoveries first, then save them directly into the unlocked app's **Secrets** section, grouped by device:
+
+```bash
+openkey discover --dry-run
+openkey discover -y
+```
+
+Keep OpenKey unlocked while discovery runs. Review the preview before saving; discovery can find sensitive values in local files and environment settings.
+
+**Use a self-hosted server:** configure its URL, sign in, and start a short-lived CLI session:
+
+```bash
+openkey config set-server https://vault.example.com
+openkey login --email you@example.com
+eval "$(openkey unlock)"
+openkey sync
+openkey status
+```
+
+The master password is requested interactively. Do not pass it as a command-line argument; for scripts, the CLI supports `OPENKEY_PASSWORD`, which should be supplied through your secret manager rather than committed to files. Lock the CLI session when finished with `eval "$(openkey lock)"`.
+
+### Common commands
+
+| Command | Purpose |
+|---------|---------|
+| `openkey gen` | Generate a password offline. |
+| `openkey discover --dry-run` / `openkey discover -y` | Preview local developer-secret discovery, or save discoveries into the connected vault. |
+| `openkey secret add`, `list`, `get`, `copy`, `update`, `export` | Manage developer secrets such as API tokens, SSH keys, and `.env` snippets. |
+| `openkey search <term>` | Search vault items. |
+| `openkey get <item> --field username` | Retrieve a field from a matching item. |
+| `openkey doctor` | Diagnose CLI, app bridge, and server connectivity. |
+
+Prefer `--stdin` or file input for secret values instead of including them directly in commands, where they may be saved in shell history or visible to other local processes. `list` and `search` mask secret values; use `get` or `copy` when you need to reveal one. Clipboard copies clear automatically after 45 seconds by default.
+
+### Android with Termux
+
+The CLI can connect to the unlocked Android app from Termux. In OpenKey, open **Settings → Data → Termux / CLI** and follow the displayed setup instructions. The bridge port and token are temporary and change after the vault is locked.
+
+See the [CLI guide](https://openkey.openselfhosting.com/guide/cli) for all commands, configuration, shell completions, scripting, and platform-specific setup.
 
 </details>
 
