@@ -370,21 +370,57 @@ The product website is [openkey.openselfhosting.com](https://openkey.openselfhos
 <details>
 <summary><strong>Self-host the sync server</strong><br></summary>
 
-The server is optional. Personal vaults work offline. Sync across your devices needs an instance you control.
+The sync server is optional: personal vaults work offline, and the server is only needed for server-based sync between your devices. It stores encrypted vault data and never receives your master password or plaintext vault key.
+
+### Quick start with Docker
+
+You need a machine with Docker Engine and the Docker Compose plugin. For a local test, run:
 
 ```bash
 git clone https://github.com/OpenSelfHosting/OpenKey_server.git
 cd OpenKey_server
 cp .env.example .env
-openssl rand -hex 32   # paste into JWT_SECRET in .env
+```
+
+Generate a unique signing secret and set it as `JWT_SECRET` in `.env`:
+
+```bash
+openssl rand -hex 32
+```
+
+Keep the generated secret private. The server rejects missing or placeholder secrets.
+
+Start the API and PostgreSQL database:
+
+```bash
 docker compose up --build -d
 ```
 
-API: `http://localhost:8000` · OpenAPI: `/docs` · Health: `/health`
+Check that the services are running and the API is healthy:
 
-Then in the official app: **Settings → Data → Self-hosted server** → that URL → register or log in → sync.
+```bash
+docker compose ps
+curl http://localhost:8000/health
+```
 
-Production: HTTPS in front of the API, unique `JWT_SECRET` (min 32 characters), explicit `CORS_ORIGINS` (never `*`). Full guide: [Install the server](https://openkey.openselfhosting.com/guide/server).
+The local API is at `http://localhost:8000`; interactive API documentation is at [`/docs`](http://localhost:8000/docs). The database data is kept in the Docker volume `openkey_pgdata`, so it survives a normal container restart. Keep separate database backups as well.
+
+### Connect OpenKey
+
+In the app, open **Settings → Data → Self-hosted server**, enter the server's base URL, then register an account or sign in and sync.
+
+- Use `http://localhost:8000` only when the app and server are on the same machine.
+- For another device on your network, use the server machine's reachable LAN address or hostname.
+- For access over the internet, use your domain with HTTPS (for example, `https://vault.example.com`).
+- Use the same server URL and account on each device you want to sync.
+
+### Production deployment
+
+Do not expose the database or the API's raw port directly to the internet. Put the API behind a reverse proxy or load balancer that provides HTTPS, keep PostgreSQL on a private network, and use a unique `JWT_SECRET` of at least 32 characters. Set `CORS_ORIGINS` to the exact browser origins you need—never use `*`. Only enable `TRUST_PROXY_HEADERS` when the trusted proxy overwrites forwarded-address headers.
+
+Review the server's `.env.example` and follow the complete [server installation and production guide](https://openkey.openselfhosting.com/guide/server) before exposing an instance publicly.
+
+> **Nearby sync is separate:** OpenKey Pro can sync directly between nearby devices over the local network; that peer-to-peer transfer does not go through this server.
 
 </details>
 
