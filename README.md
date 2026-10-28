@@ -73,8 +73,13 @@ The OpenKey app and protocol are open source under the MIT License. This reposit
 
 Build OpenKey from the repository root with Flutter. A server is **not** required to build or use a personal vault offline; configure a self-hosted server only if you want to sync between devices.
 
+Clone the app repository:
 ```bash
 git clone https://github.com/OpenSelfHosting/OpenKey.git
+```
+
+Change into the cloned project directory:
+```bash
 cd OpenKey
 ```
 
@@ -99,10 +104,15 @@ Flutter generates the app's localization and native plugin assets as part of the
 
 ### Run the app
 
-List available simulators, emulators, and desktop targets, then pass the chosen device ID to Flutter:
+List available simulators, emulators, and desktop targets:
 
 ```bash
 flutter devices
+```
+
+Run the app on the target you selected from that list:
+
+```bash
 flutter run -d <device-id>
 ```
 
@@ -110,22 +120,39 @@ For example, start an Android emulator or connect a device with USB debugging en
 
 ### Build a release
 
-Run the command for the platform you want to package:
+Build an Android APK for direct installation:
 
 ```bash
-# Android APK (sideloading / direct distribution)
 flutter build apk --release
+```
 
-# Windows desktop (run on Windows)
+For Google Play, configure release signing as described below, then build an Android App Bundle:
+
+```bash
+flutter build appbundle --release
+```
+
+Build the Windows desktop app (run this on Windows):
+
+```bash
 flutter build windows --release
+```
 
-# Linux desktop (run on Linux)
+Build the Linux desktop app (run this on Linux):
+
+```bash
 flutter build linux --release
+```
 
-# macOS desktop (run on macOS)
+Build the macOS desktop app (run this on macOS):
+
+```bash
 flutter build macos --release
+```
 
-# iOS (run on macOS with Xcode)
+Build the iOS app (run this on macOS with Xcode):
+
+```bash
 flutter build ios --release
 ```
 
@@ -135,10 +162,15 @@ The Android release build uses a debug signing key unless you provide a release 
 
 ### Check the source
 
-Before submitting changes, run the static analyzer and test suite:
+Run the static analyzer before submitting changes:
 
 ```bash
 flutter analyze
+```
+
+Run the test suite:
+
+```bash
 flutter test
 ```
 
@@ -374,11 +406,21 @@ The sync server is optional: personal vaults work offline, and the server is onl
 
 ### Quick start with Docker
 
-You need a machine with Docker Engine and the Docker Compose plugin. For a local test, run:
+You need a machine with Docker Engine and the Docker Compose plugin. Clone the server repository:
 
 ```bash
 git clone https://github.com/OpenSelfHosting/OpenKey_server.git
+```
+
+Change into the server directory:
+
+```bash
 cd OpenKey_server
+```
+
+Create the environment file from the provided example:
+
+```bash
 cp .env.example .env
 ```
 
@@ -396,10 +438,15 @@ Start the API and PostgreSQL database:
 docker compose up --build -d
 ```
 
-Check that the services are running and the API is healthy:
+Check that the API and database containers are running:
 
 ```bash
 docker compose ps
+```
+
+Check that the API health endpoint responds:
+
+```bash
 curl http://localhost:8000/health
 ```
 
@@ -446,12 +493,27 @@ The desktop bridge focuses on filling and managing supported vault items through
 
 ### Build and install
 
-Install Node.js, then build the extension from source:
+Install Node.js, then clone the extension repository:
 
 ```bash
 git clone https://github.com/OpenSelfHosting/OpenKey_extension.git
+```
+
+Change into the extension project directory:
+
+```bash
 cd OpenKey_extension
+```
+
+Install the extension's dependencies:
+
+```bash
 npm install
+```
+
+Build the extension. The generated files are written to `dist/`:
+
+```bash
 npm run build
 ```
 
@@ -477,64 +539,112 @@ The open-source `openkey` CLI brings OpenKey into terminal workflows. Generate p
 
 ### Install
 
+Install the CLI globally:
+
 ```bash
 npm install -g openkey-cli
+```
+
+Check that it is installed:
+
+```bash
 openkey --version
 ```
 
-### Choose how the CLI accesses your vault
+### Use the unlocked app
 
-**Use the unlocked app (recommended for local use):** unlock OpenKey on this device, then check the connection:
+Unlock OpenKey on this device first. Check the app bridge and current connection:
 
 ```bash
 openkey status
 ```
 
-Vault commands use the app's local bridge while the app is unlocked. Password generation does not need an unlocked vault:
+Generate a 24-character password without symbols. Generation works offline and does not require an unlocked vault:
 
 ```bash
 openkey gen -l 24 --no-symbols
+```
+
+List developer secrets saved in the connected vault. Keep the app unlocked:
+
+```bash
 openkey secret list
+```
+
+Add a secret directly to the unlocked app's **Secrets** section. This example reads the value from standard input rather than a command-line argument:
+
+```bash
 printf '%s' "$TOKEN" | openkey secret add --name "GitHub token" --kind apiToken --stdin
 ```
 
-You can also scan this machine for developer secrets (such as SSH keys, `.env` values, environment variables, and AWS credentials). Preview discoveries first, then save them directly into the unlocked app's **Secrets** section, grouped by device:
+Scan this machine for developer secrets such as SSH keys, `.env` values, environment variables, and AWS credentials. Preview findings without saving:
 
 ```bash
 openkey discover --dry-run
+```
+
+Save discovered secrets directly into the connected vault, grouped by device. Review the preview first and keep OpenKey unlocked:
+```bash
 openkey discover -y
 ```
 
-Keep OpenKey unlocked while discovery runs. Review the preview before saving; discovery can find sensitive values in local files and environment settings.
+Search vault items by a term:
 
-**Use a self-hosted server:** configure its URL, sign in, and start a short-lived CLI session:
+```bash
+openkey search api
+```
+
+Retrieve a specific field from a matching item:
+
+```bash
+openkey get "GitHub" --field username
+```
+
+Diagnose the CLI, app bridge, and server connection:
+
+```bash
+openkey doctor
+```
+
+### Use a self-hosted server
+
+Point the CLI at your server. Replace the example URL with your server's HTTPS URL:
 
 ```bash
 openkey config set-server https://vault.example.com
-openkey login --email you@example.com
-eval "$(openkey unlock)"
-openkey sync
-openkey status
 ```
 
-The master password is requested interactively. Do not pass it as a command-line argument; for scripts, the CLI supports `OPENKEY_PASSWORD`, which should be supplied through your secret manager rather than committed to files. Lock the CLI session when finished with `eval "$(openkey lock)"`.
+Sign in to your server account. The master password is requested interactively:
 
-### Common commands
+```bash
+openkey login --email you@example.com
+```
 
-| Command | Purpose |
-|---------|---------|
-| `openkey gen` | Generate a password offline. |
-| `openkey discover --dry-run` / `openkey discover -y` | Preview local developer-secret discovery, or save discoveries into the connected vault. |
-| `openkey secret add`, `list`, `get`, `copy`, `update`, `export` | Manage developer secrets such as API tokens, SSH keys, and `.env` snippets. |
-| `openkey search <term>` | Search vault items. |
-| `openkey get <item> --field username` | Retrieve a field from a matching item. |
-| `openkey doctor` | Diagnose CLI, app bridge, and server connectivity. |
+Start a short-lived CLI session. The command prints shell instructions; `eval` applies them to the current shell:
 
-Prefer `--stdin` or file input for secret values instead of including them directly in commands, where they may be saved in shell history or visible to other local processes. `list` and `search` mask secret values; use `get` or `copy` when you need to reveal one. Clipboard copies clear automatically after 45 seconds by default.
+```bash
+eval "$(openkey unlock)"
+```
+
+Pull and push encrypted vault changes:
+
+```bash
+openkey sync
+```
+
+Lock the CLI session when you are finished:
+
+```bash
+eval "$(openkey lock)"
+```
+
+Never pass your master password as a command-line argument. For scripts, the CLI supports `OPENKEY_PASSWORD`; provide it through a secret manager rather than committing it to files.
 
 ### Android with Termux
 
 The CLI can connect to the unlocked Android app from Termux. In OpenKey, open **Settings → Data → Termux / CLI** and follow the displayed setup instructions. The bridge port and token are temporary and change after the vault is locked.
+
+Prefer `--stdin` or file input for secret values instead of including them directly in commands, where they may be saved in shell history or visible to other local processes. `list` and `search` mask secret values; use `get` or `copy` when you need to reveal one. Clipboard copies clear automatically after 45 seconds by default.
 
 See the [CLI guide](https://openkey.openselfhosting.com/guide/cli) for all commands, configuration, shell completions, scripting, and platform-specific setup.
 
