@@ -15,15 +15,11 @@
 <p align="center">
   <a href="https://github.com/OpenSelfHosting"><img src="https://img.shields.io/badge/by-OpenSelfHosting-0F766E?style=flat-square" alt="OpenSelfHosting"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/app%20license-MIT-14B8A6?style=flat-square" alt="MIT license"></a>
-  <a href="./spec/"><img src="https://img.shields.io/badge/protocol-open-0B1220?style=flat-square" alt="Open protocol"></a>
-  <a href="./spec/crypto.md"><img src="https://img.shields.io/badge/sync-ciphertext%20only-134E4A?style=flat-square" alt="Ciphertext-only sync"></a>
   <a href="./SECURITY.md"><img src="https://img.shields.io/badge/security-policy-042F2E?style=flat-square" alt="Security policy"></a>
 </p>
 
 <p align="center">
   <a href="https://openkey.openselfhosting.com">Website</a>
-  ·
-  <a href="./spec/">Protocol spec</a>
   ·
   <a href="https://openkey.openselfhosting.com/guide/security">Security model</a>
 </p>
@@ -33,9 +29,9 @@
 </p>
 
 <p align="center">
-  <a href="https://apps.microsoft.com/detail/9MXNBRPMDT53"><img src="https://img.shields.io/badge/Microsoft_Store-Download-0078D4?style=for-the-badge&amp;logo=microsoftstore&amp;logoColor=white" alt="Get OpenKey from the Microsoft Store"></a>
-  &nbsp;
-  <a href="https://play.google.com/store/apps/details?id=com.openselfhosting.openkey"><img src="https://img.shields.io/badge/Google_Play-Download-414141?style=for-the-badge&amp;logo=googleplay&amp;logoColor=white" alt="Get OpenKey on Google Play"></a>
+  <a href="https://apps.microsoft.com/detail/9MXNBRPMDT53"><img src="docs/assets/microsoft-store-download.svg" width="220" height="64" alt="Download OpenKey from the Microsoft Store"></a>
+  &nbsp;&nbsp;
+  <a href="https://play.google.com/store/apps/details?id=com.openselfhosting.openkey"><img src="docs/assets/google-play-download.svg" width="220" height="64" alt="Download OpenKey on Google Play"></a>
 </p>
 
 <p align="center"><a href="https://openkey.openselfhosting.com/guide/download">More platforms and download options →</a></p>
@@ -91,33 +87,86 @@ Select a connected device or desktop target with Flutter's `-d` option. Each tar
 <details>
 <summary><strong>Features</strong><br></summary>
 
-<div align="center">
-  <table>
-    <tr>
-      <td width="25%" valign="top" align="left">
-        <strong>Zero-knowledge vault</strong><br>
-        Encrypt logins, notes, cards, crypto wallets, secrets, names, and attachments on-device before they ever leave your device.
-      </td>
-      <td width="25%" valign="top" align="left">
-        <strong>Self-hosted sync</strong><br>
-        Sync across Android, macOS, Linux, and Windows through a server you control; personal vaults also work entirely offline.
-      </td>
-      <td width="25%" valign="top" align="left">
-        <strong>Autofill &amp; passkeys</strong><br>
-        Fill login forms with the desktop app or browser extension, save updated credentials, and use passkeys or TOTP where supported.
-      </td>
-      <td width="25%" valign="top" align="left">
-        <strong>Open protocols</strong><br>
-        The app, sync protocol, and server APIs are open source so you can inspect the implementation and build your own stack.
-      </td>
-    </tr>
-  </table>
-</div>
+One secure home for your passwords, payment details, and developer credentials.
 
-- Secure password generation and local-only credential checks
-- Collections, tags, and fast search for organized vaults
-- Optional LAN sync for Pro users without routing through the API
-- Local app bridge and browser extension support for developer workflows and everyday autofill
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Private by design</strong><br>
+      <sub>Your vault stays yours</sub>
+      <ul>
+        <li>Encrypt vault data on your device before it is synced.</li>
+        <li>Use a personal vault offline, with no server required.</li>
+        <li>When you sync, the server stores encrypted data—not your master password.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <strong>Passwords, passkeys &amp; more</strong><br>
+      <sub>Keep the details you rely on together</sub>
+      <ul>
+        <li>Save logins, notes, recovery codes, custom fields, and file attachments.</li>
+        <li>Use TOTP two-factor codes and passkeys on supported platforms.</li>
+        <li>Store payment cards, crypto wallets, SSH keys, API tokens, and environment snippets.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Organized and easy to search</strong><br>
+      <sub>Find the right item quickly</sub>
+      <ul>
+        <li>Group items into collections and folders, then narrow results with tags and filters.</li>
+        <li>Search across your vault and personalize collections with icons.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <strong>Autofill that fits your workflow</strong><br>
+      <sub>Less typing, fewer interruptions</sub>
+      <ul>
+        <li>Fill and save credentials with supported system autofill providers or the browser extension.</li>
+        <li>Connect the extension to the unlocked desktop app through OpenKey's local bridge.</li>
+        <li>Passkey creation and autofill depend on the platform and browser.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Sync on your terms</strong><br>
+      <sub>Choose where your encrypted data goes</sub>
+      <ul>
+        <li>Sync through an optional server that you host and control.</li>
+        <li>With Pro, sync directly between nearby devices over your local network—without routing through the API.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <strong>Security and recovery controls</strong><br>
+      <sub>Protect access and keep a way back in</sub>
+      <ul>
+        <li>Set auto-lock and use biometric unlock; require biometrics for autofill where supported.</li>
+        <li>Enable screenshot protection on supported platforms.</li>
+        <li>Create an encrypted full-vault backup or import and export vault data.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>Useful tools, built in</strong><br>
+      <sub>Generate what you need, when you need it</sub>
+      <ul>
+        <li>Create passwords, usernames, and email addresses, with password-strength feedback.</li>
+        <li>Check credentials locally on your device.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <strong>Make OpenKey yours</strong><br>
+      <sub>A comfortable setup across your devices</sub>
+      <ul>
+        <li>Choose themes, colors, fonts, and your preferred language.</li>
+        <li>Manage multiple vault accounts from the account switcher.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 </details>
 
@@ -126,25 +175,88 @@ Select a connected device or desktop target with Flutter's `-d` option. Each tar
 <details>
 <summary><strong>Product screenshots</strong><br></summary>
 
+<h3 align="center">Google Play — Android</h3>
+
+<table>
+  <tr>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/home-android-en.jpg" alt="OpenKey Android vault" width="100%">
+      <p align="center"><sub>Vault</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/password-android-en.jpg" alt="OpenKey Android password details and two-factor authentication" width="100%">
+      <p align="center"><sub>Passwords and 2FA</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/card-android-en.jpg" alt="OpenKey Android payment cards" width="100%">
+      <p align="center"><sub>Cards</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/generator-android-en.jpg" alt="OpenKey Android password generator" width="100%">
+      <p align="center"><sub>Password generator</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/autofill-android-en.jpg" alt="OpenKey autofill in an Android browser" width="100%">
+      <p align="center"><sub>Autofill</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/import-android-en.jpg" alt="Import and export in OpenKey for Android" width="100%">
+      <p align="center"><sub>Import and export</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/nearby-android-en.jpg" alt="Nearby device sync in OpenKey for Android" width="100%">
+      <p align="center"><sub>Nearby sync</sub></p>
+    </td>
+    <td width="25%" valign="top">
+      <img src="docs/screenshots/GooglePlay/selfhosting-android-en.jpg" alt="Self-hosted server setup in OpenKey for Android" width="100%">
+      <p align="center"><sub>Self-hosting</sub></p>
+    </td>
+  </tr>
+</table>
+
+<h3 align="center">Microsoft Store — Windows</h3>
+
 <table>
   <tr>
     <td width="50%" valign="top">
-      <img src="docs/screenshots/03-vault.png" alt="OpenKey vault and collections" width="100%">
-      <p align="center"><sub><strong>Vault</strong> — collections, search, and item types</sub></p>
+      <img src="docs/screenshots/MicrosoftStore/Home-windows-en.jpeg" alt="OpenKey vault on Windows" width="100%">
+      <p align="center"><sub>Vault</sub></p>
     </td>
     <td width="50%" valign="top">
-      <img src="docs/screenshots/04-entry.png" alt="OpenKey login with TOTP" width="100%">
-      <p align="center"><sub><strong>Entry</strong> — password, TOTP, passkey, or card</sub></p>
+      <img src="docs/screenshots/MicrosoftStore/Password-windows-en.jpeg" alt="OpenKey passwords and two-factor authentication on Windows" width="100%">
+      <p align="center"><sub>Passwords and 2FA</sub></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <img src="docs/screenshots/05-autofill.png" alt="OpenKey browser autofill picker" width="100%">
-      <p align="center"><sub><strong>Autofill</strong> — system provider or browser extension</sub></p>
+      <img src="docs/screenshots/MicrosoftStore/Card-windows-en.jpeg" alt="OpenKey payment cards on Windows" width="100%">
+      <p align="center"><sub>Cards</sub></p>
     </td>
     <td width="50%" valign="top">
-      <img src="docs/screenshots/06-sync.png" alt="OpenKey self-hosted server settings" width="100%">
-      <p align="center"><sub><strong>Sync</strong> — Settings → Data → Self-hosted server</sub></p>
+      <img src="docs/screenshots/MicrosoftStore/Generator-windows-en.jpeg" alt="OpenKey password generator on Windows" width="100%">
+      <p align="center"><sub>Password generator</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/MicrosoftStore/Import-windows-en.jpeg" alt="Import and export in OpenKey for Windows" width="100%">
+      <p align="center"><sub>Import and export</sub></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/MicrosoftStore/Nearby-windows-en.jpeg" alt="Nearby device sync in OpenKey for Windows" width="100%">
+      <p align="center"><sub>Nearby sync</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/MicrosoftStore/Hosting-windows-en.jpeg" alt="Self-hosted server setup in OpenKey for Windows" width="100%">
+      <p align="center"><sub>Self-hosting</sub></p>
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/screenshots/05-autofill.png" alt="OpenKey browser autofill picker" width="100%">
+      <p align="center"><sub><strong>Browser autofill</strong> — save and fill credentials</sub></p>
     </td>
   </tr>
 </table>
@@ -161,7 +273,6 @@ Capture notes: [`docs/screenshots/README.md`](./docs/screenshots/README.md).
 | Piece | Repository | License |
 |-------|------------|---------|
 | Official Flutter app | This repository | MIT |
-| Protocol spec (KDF, vault payload, sync) | [`spec/`](./spec/) in this repo | MIT |
 | Sync server | [OpenKey_server](https://github.com/OpenSelfHosting/OpenKey_server) | MIT |
 | Browser extension | [OpenKey_extension](https://github.com/OpenSelfHosting/OpenKey_extension) | MIT |
 | Developer CLI | [OpenKey_cli](https://github.com/OpenSelfHosting/OpenKey_cli) | MIT |
@@ -217,21 +328,6 @@ Production: HTTPS in front of the API, unique `JWT_SECRET` (min 32 characters), 
 
 </details>
 
----
-
-<details>
-<summary><strong>How encryption works</strong><br></summary>
-
-1. `Argon2id(utf8(trim(email).toLowerCase() + ":" + master_password), salt)` → master key
-2. Master key → `auth_hash` (HMAC-SHA256 with `"openkey-auth"`, sent to the server) and wraps the vault key
-3. Vault key encrypts collection names and entry payloads (**AES-256-GCM**)
-4. The server stores salt, KDF params, wrapped vault key, and opaque ciphertext — not the master password
-
-There is no master-password recovery. If it is lost, ciphertext is unrecoverable.
-
-Details: [`spec/crypto.md`](./spec/crypto.md) · [Security](https://openkey.openselfhosting.com/guide/security)
-
-</details>
 
 ---
 
@@ -292,8 +388,7 @@ Report vulnerabilities **privately** to **security@openselfhosting.com** — do 
 <summary><strong>Contributing</strong><br></summary>
 
 Issues and pull requests for bugs, documentation, and improvements are welcome.
-Keep client behavior aligned with [`spec/`](./spec/), and include focused tests
-with code changes. For security vulnerabilities, use the private reporting
+Include focused tests with code changes. For security vulnerabilities, use the private reporting
 instructions in [SECURITY.md](./SECURITY.md) instead of opening a public issue.
 
 </details>
