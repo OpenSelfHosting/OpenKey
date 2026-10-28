@@ -344,7 +344,7 @@ One secure home for your passwords, payment details, and developer credentials.
       <p align="center"><sub>Self-hosting</sub></p>
     </td>
     <td width="50%" valign="top">
-      <img src="docs/screenshots/05-autofill.png" alt="OpenKey browser autofill picker" width="100%">
+      <img src="docs/screenshots/MicrosoftStore/self-hosting-windows-en.jpg" alt="OpenKey browser autofill picker" width="100%">
       <p align="center"><sub><strong>Browser autofill</strong> — save and fill credentials</sub></p>
     </td>
   </tr>
