@@ -71,14 +71,76 @@ The OpenKey app and protocol are open source under the MIT License. This reposit
 <details>
 <summary><strong>Build from source</strong><br></summary>
 
-Install Flutter with a Dart SDK version allowed by [`pubspec.yaml`](./pubspec.yaml), then run:
+Build OpenKey from the repository root with Flutter. A server is **not** required to build or use a personal vault offline; configure a self-hosted server only if you want to sync between devices.
+
+```bash
+git clone https://github.com/OpenSelfHosting/OpenKey.git
+cd OpenKey
+```
+
+### Requirements
+
+- Flutter with the Dart SDK version allowed by [`pubspec.yaml`](./pubspec.yaml) (`>=3.12.2 <4.0.0`).
+- The native toolchain for your target platform. Run `flutter doctor -v` to see what is installed and what is missing.
+- For Android: Android Studio or the Android SDK command-line tools, Android SDK Platform 36, and accepted Android SDK licenses. OpenKey's minimum Android SDK is API 26. Accept licenses with `flutter doctor --android-licenses`.
+- For Windows desktop: Windows and Visual Studio with the **Desktop development with C++** workload.
+- For Linux desktop: GTK 3 development files, CMake, Ninja, `pkg-config`, a C++ compiler, and the standard build tools (for Debian/Ubuntu, install `build-essential` and `libgtk-3-dev`).
+- For macOS or iOS: macOS with Xcode installed and configured. iOS builds also require a valid signing team/device for device installation or distribution; the project deployment targets are macOS 10.15 and iOS 15.5.
+
+### Resolve dependencies
+
+From the repository root:
 
 ```bash
 flutter pub get
-flutter run
 ```
 
-Select a connected device or desktop target with Flutter's `-d` option. Each target platform may require its own Flutter toolchain and system dependencies.
+Flutter generates the app's localization and native plugin assets as part of the build. You do not need to run code generation separately for a standard build.
+
+### Run the app
+
+List available simulators, emulators, and desktop targets, then pass the chosen device ID to Flutter:
+
+```bash
+flutter devices
+flutter run -d <device-id>
+```
+
+For example, start an Android emulator or connect a device with USB debugging enabled, then use its ID from `flutter devices`. Desktop targets can also be selected by their Flutter target name, such as `linux`, `windows`, or `macos`, when that platform is enabled in your Flutter installation.
+
+### Build a release
+
+Run the command for the platform you want to package:
+
+```bash
+# Android APK (sideloading / direct distribution)
+flutter build apk --release
+
+# Windows desktop (run on Windows)
+flutter build windows --release
+
+# Linux desktop (run on Linux)
+flutter build linux --release
+
+# macOS desktop (run on macOS)
+flutter build macos --release
+
+# iOS (run on macOS with Xcode)
+flutter build ios --release
+```
+
+Build outputs are written under `build/` (Android APKs and app bundles are under `build/app/outputs/`). Desktop and iOS builds must be produced on their respective operating systems; cross-compiling between desktop platforms is not supported by these commands.
+
+The Android release build uses a debug signing key unless you provide a release keystore. To create a Google Play-ready bundle, configure your upload keystore in `android/key.properties` (`storeFile`, `storePassword`, `keyAlias`, and `keyPassword`). Keep the keystore and `key.properties` private; never commit them. For iOS distribution, configure signing in Xcode before archiving or uploading the app.
+
+### Check the source
+
+Before submitting changes, run the static analyzer and test suite:
+
+```bash
+flutter analyze
+flutter test
+```
 
 </details>
 
@@ -260,9 +322,6 @@ One secure home for your passwords, payment details, and developer credentials.
     </td>
   </tr>
 </table>
-
-Capture notes: [`docs/screenshots/README.md`](./docs/screenshots/README.md).
-
 </details>
 
 ---
@@ -270,21 +329,20 @@ Capture notes: [`docs/screenshots/README.md`](./docs/screenshots/README.md).
 <details>
 <summary><strong>OpenKey projects</strong><br></summary>
 
-| Piece | Repository | License |
-|-------|------------|---------|
-| Official Flutter app | This repository | MIT |
-| Sync server | [OpenKey_server](https://github.com/OpenSelfHosting/OpenKey_server) | MIT |
-| Browser extension | [OpenKey_extension](https://github.com/OpenSelfHosting/OpenKey_extension) | MIT |
-| Developer CLI | [OpenKey_cli](https://github.com/OpenSelfHosting/OpenKey_cli) | MIT |
-| Documentation site | [OpenKey_docs](https://github.com/OpenSelfHosting/OpenKey_docs) | MIT |
+The ecosystem is modular: the official app works offline, and you can add only the services and tools you need.
 
-An alternative MongoDB API implementation is maintained in `OpenKey_kube_server`;
-it is not a drop-in replacement for `OpenKey_server`. Kubernetes overlays are
-maintained separately in `OpenKey_kubernetes`.
+| Project | What it does | When to use it |
+|---------|--------------|----------------|
+| [OpenKey app](https://github.com/OpenSelfHosting/OpenKey) | Official Flutter app for Android, macOS, Linux, and Windows. | Use it as your personal password manager; a server is optional. |
+| [OpenKey server](https://github.com/OpenSelfHosting/OpenKey_server) | Self-hosted API for syncing encrypted vault data between devices. | Deploy it when you want server-based sync that you control. |
+| [OpenKey browser extension](https://github.com/OpenSelfHosting/OpenKey_extension) | Browser-based vault, autofill, and connection to the unlocked desktop app. | Use it for browser autofill, either standalone with a server or with the desktop app bridge. |
+| [OpenKey CLI](https://github.com/OpenSelfHosting/OpenKey_cli) | Terminal tools for password generation and vault items. | Use it in developer workflows with the desktop app bridge or a server session. |
+| [OpenKey documentation](https://github.com/OpenSelfHosting/OpenKey_docs) | Product guides and documentation. | Use it for setup instructions and feature guides. |
 
-Product site: [openkey.openselfhosting.com](https://openkey.openselfhosting.com). Company: [openselfhosting.com](https://openselfhosting.com).
 
-Official app releases are attached to **this** repository’s GitHub Releases and are also available through supported app stores. **OpenKey Pro** subscriptions are sold through app stores (RevenueCat). See the [Terms of Service](https://openkey.openselfhosting.com/terms) and [Privacy Policy](https://openkey.openselfhosting.com/privacy) for product and service details.
+### How the pieces connect
+
+The app, browser extension, and CLI can each sync with a server. The extension and CLI can also connect to an unlocked desktop app through its local bridge.
 
 ```mermaid
 flowchart LR
@@ -302,6 +360,8 @@ flowchart LR
 ```
 
 Nearby LAN sync (Pro) is peer-to-peer on the local network. It does **not** go through the API.
+
+The product website is [openkey.openselfhosting.com](https://openkey.openselfhosting.com); the company website is [openselfhosting.com](https://openselfhosting.com). Official app releases are available from [GitHub Releases](https://github.com/OpenSelfHosting/OpenKey/releases) and supported app stores. **OpenKey Pro** subscriptions are sold through app stores. See the [Terms of Service](https://openkey.openselfhosting.com/terms) and [Privacy Policy](https://openkey.openselfhosting.com/privacy) for product and service details.
 
 </details>
 
