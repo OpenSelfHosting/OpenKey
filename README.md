@@ -14,14 +14,9 @@
 
 <p align="center">
   <a href="https://github.com/OpenSelfHosting"><img src="https://img.shields.io/badge/by-OpenSelfHosting-0F766E?style=flat-square" alt="OpenSelfHosting"></a>
+  <a href="https://openkey.openselfhosting.com"><img src="https://img.shields.io/badge/product-website-0F766E?style=flat-square" alt="OpenKey product website"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/app%20license-MIT-14B8A6?style=flat-square" alt="MIT license"></a>
   <a href="./SECURITY.md"><img src="https://img.shields.io/badge/security-policy-042F2E?style=flat-square" alt="Security policy"></a>
-</p>
-
-<p align="center">
-  <a href="https://openkey.openselfhosting.com">Website</a>
-  ·
-  <a href="https://openkey.openselfhosting.com/guide/security">Security model</a>
 </p>
 
 <p align="center">
