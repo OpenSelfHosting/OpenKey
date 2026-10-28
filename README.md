@@ -430,7 +430,23 @@ Review the server's `.env.example` and follow the complete [server installation 
 <details>
 <summary><strong>Browser extension</strong><br></summary>
 
-The open-source extension supports Chrome, Edge, Brave, Vivaldi, LibreWolf, and Firefox. Use it with your self-hosted server as a standalone vault, or connect it to an **unlocked desktop app** to fill and save without a separate extension unlock. It can autofill logins and cards, capture updated logins, and work with passkeys.
+The open-source extension supports Chrome, Edge, Brave, Vivaldi, LibreWolf, and Firefox. Choose the workflow that fits your setup:
+
+- **Standalone vault:** connect to your self-hosted server, unlock the extension with your account, and sync encrypted vault data.
+- **Desktop app bridge:** connect to an unlocked OpenKey desktop app to fill and save without a separate extension unlock.
+
+### What you can do
+
+- Autofill logins and payment cards, and capture new or updated logins.
+- Use passkeys on supported sites and browsers.
+- Browse and manage cards, crypto wallets, and developer secrets.
+- In standalone mode, access synced attachments, shares, and organization features where available.
+
+The desktop bridge focuses on filling and managing supported vault items through the unlocked app; server-dependent features such as shares and organization management remain in standalone mode.
+
+### Build and install
+
+Install Node.js, then build the extension from source:
 
 ```bash
 git clone https://github.com/OpenSelfHosting/OpenKey_extension.git
@@ -439,7 +455,16 @@ npm install
 npm run build
 ```
 
-Load the generated `dist/` directory as an unpacked extension in Chromium browsers, or select `dist/manifest.json` from Firefox’s `about:debugging` page. See the [Browser extension guide](https://openkey.openselfhosting.com/guide/extension) for setup, permissions, keyboard shortcuts, and connecting the desktop app.
+- **Chrome, Edge, Brave, Vivaldi, and LibreWolf:** open the browser's extensions page, enable Developer mode, choose **Load unpacked**, and select the generated `dist/` directory.
+- **Firefox:** open `about:debugging` → **This Firefox** → **Load Temporary Add-on**, then select `dist/manifest.json`. Temporary add-ons may need to be loaded again after Firefox restarts.
+
+Chromium browsers require the extension ID to register the desktop bridge. Follow the platform-specific steps in the [Browser extension guide](https://openkey.openselfhosting.com/guide/extension), then choose **Use desktop app** in the extension.
+
+### Shortcut and permissions
+
+Use **Ctrl+Shift+L** on Windows/Linux or **⌘⇧L** on macOS to fill a login. If another extension uses the shortcut, change it in the browser's extension shortcut settings.
+
+The extension requests access to websites so it can offer autofill, capture login updates, and handle passkeys. Review the browser's permission prompt and the [extension guide](https://openkey.openselfhosting.com/guide/extension#permissions) before installing.
 
 </details>
 
