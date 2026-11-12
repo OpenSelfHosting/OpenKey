@@ -27,6 +27,8 @@
   <a href="https://apps.microsoft.com/detail/9MXNBRPMDT53"><img src="docs/assets/microsoft-store-download.svg" width="220" height="64" alt="Download OpenKey from the Microsoft Store"></a>
   &nbsp;&nbsp;
   <a href="https://play.google.com/store/apps/details?id=com.openselfhosting.openkey"><img src="docs/assets/google-play-download.svg" width="220" height="64" alt="Download OpenKey on Google Play"></a>
+  &nbsp;&nbsp;
+  <a href="https://chromewebstore.google.com/detail/cmebbcnocamcolnedgafbkeelejldoga?utm_source=item-share-cp"><img src="docs/assets/chrome-web-store-download.svg" width="220" height="64" alt="Get the OpenKey extension from the Chrome Web Store"></a>
 </p>
 
 <p align="center"><a href="https://openkey.openselfhosting.com/guide/download">More platforms and download options →</a></p>
