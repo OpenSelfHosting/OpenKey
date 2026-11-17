@@ -835,6 +835,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.5.0"
+  openkey_shared:
+    dependency: "direct main"
+    description:
+      path: packages/openkey_shared
+      relative: true
+    source: path
+    version: "0.1.0"
   otp:
     dependency: "direct main"
     description:

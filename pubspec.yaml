@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  openkey_shared:
+    path: packages/openkey_shared
   flutter_localizations:
     sdk: flutter
   intl: any
