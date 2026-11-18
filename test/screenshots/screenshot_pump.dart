@@ -17,7 +17,7 @@ Widget screenshotMaterialApp({
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
     home: MediaQuery(
-      data: MediaQueryData(size: surfaceSize),
+      data: MediaQueryData(size: surfaceSize, disableAnimations: true),
       child: child,
     ),
   );
