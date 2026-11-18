@@ -1,0 +1,52 @@
+name: Shared package CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "packages/openkey_shared/**"
+      - ".github/workflows/shared-package-ci.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/openkey_shared/**"
+      - ".github/workflows/shared-package-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: shared-package-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Analyze and test shared package
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    defaults:
+      run:
+        working-directory: packages/openkey_shared
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze --fatal-infos
+
+      - name: Run tests
+        run: flutter test --reporter expanded
