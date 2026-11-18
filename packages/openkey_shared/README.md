@@ -10,6 +10,8 @@ in both apps:
 - `Either<L, R>`, `Left`, and `Right` for typed success/failure results.
 - `passwordStrengthScore` and `isWeakPassword` for the vault password
   strength heuristic.
+- `VaultEntry` and its nested TOTP, attachment, passkey, and extra-field
+  models, including the existing payload serialization contract.
 - `FeatureAccess` and the edition capability identifiers used by host apps.
 
 Import the public API through:
