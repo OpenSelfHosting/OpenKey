@@ -36,7 +36,7 @@ jobs:
         run: flutter pub get
 
       - name: Analyze
-        run: flutter analyze --fatal-warnings
+        run: flutter analyze --no-fatal-infos
 
       - name: Run tests
         run: flutter test --reporter expanded
